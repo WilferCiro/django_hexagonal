@@ -7,7 +7,7 @@ from app.shared.infraestructure.decorators.validate_user import validate_user
 # ValidateSerializer
 from app.shared.infraestructure.views.BaseView import BaseView
 
-class UserViewSet(BaseView):
+class ProductViewSet(BaseView):
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -23,10 +23,10 @@ class UserViewSet(BaseView):
         serializer = ProductSerializer(queryset, many=True, context={'request': request})
         return self.response(serializer.data)
 
-def user_view(request):
+def product_view(request):
     # Instancia los objetos de servicio y repositorio
     repository = ProductRepository()
     service = ProductService(repository)
 
-    view = UserViewSet.as_view(service=service)
+    view = ProductViewSet.as_view(service=service)
     return view(request)
