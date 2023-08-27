@@ -1,12 +1,12 @@
 from app.products.domain.interfaces.repository_interface import ProductRepositoryInterface
-from django.contrib.auth.models import User
+from app.products.infrastructure.models.models import ProductModel
 
 
 class ProductRepository(ProductRepositoryInterface):
 
     def getAll(self):
-        return User.objects.all()
-    
+        return ProductModel.objects.all()
+
     def getById(self, id):
         pass
 
@@ -14,7 +14,7 @@ class ProductRepository(ProductRepositoryInterface):
         pass
 
     def create(self, userData):
-        pass
+        return ProductModel.objects.create(title=userData["title"], price=userData["price"])
 
     def update(self, id, userData):
         pass

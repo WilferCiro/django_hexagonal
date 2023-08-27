@@ -11,10 +11,10 @@ class ProductService(ProductServiceInterface):
     def getPaginated(self):
         pass
 
-    def create(self, userData):
-        pass
+    def create(self, data):
+        return self.productRepository.create(data)
 
-    def update(self, id, userData):
+    def update(self, id, data):
         pass
 
     def delete(self, id):

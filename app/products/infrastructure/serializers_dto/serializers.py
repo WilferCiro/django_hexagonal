@@ -1,5 +1,9 @@
 from rest_framework import serializers
 
-class ProductDtoSerializer(serializers.Serializer):
-    email = serializers.EmailField(required=True)
-    name = serializers.CharField(required=True)
+class ProductCreateDtoSerializer(serializers.Serializer):
+    title = serializers.CharField(required=True)
+    price = serializers.IntegerField(required=True)
+
+class ProductUpdateDtoSerializer(serializers.Serializer):
+    title = serializers.CharField(required=True)
+    price = serializers.IntegerField(required=True)

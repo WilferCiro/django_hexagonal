@@ -1,7 +1,8 @@
-from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+
+from app.products.infrastructure.models.models import ProductModel
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['username', 'email', 'groups']
+        model = ProductModel
+        fields = ['title', 'price']

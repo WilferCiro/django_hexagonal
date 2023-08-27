@@ -1,7 +1,8 @@
 from django.urls import include, path
-from app.products.infrastructure.views.views import product_view
+from app.products.infrastructure.views.views import ProductViewSet
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    path('users/', product_view),
-    path('api/', include('rest_framework.urls', namespace='rest_framework')),
+    path('users', csrf_exempt(ProductViewSet.as_view())),
+    path('api', include('rest_framework.urls', namespace='rest_framework')),
 ]
